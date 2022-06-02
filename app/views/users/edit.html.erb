@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Edit User</h1>
+  <%= form_with model: @user do |form| %>
+    <%= form.label "Username:" %> <br>
+    <%= form.text_field :username, placeholder: "Your username here, min. 4 char" %> <br><br>
+    <%= form.label "Email:" %> <br>
+    <%= form.email_field :email, placeholder: "email@gmail.com" %> <br><br>
+    <%= form.label "Password:" %> <br>
+    <%= form.password_field :password, placeholder: "Password min. 6 char" %> <br><br>
+    <%= form.submit "Submit" %>
+  <% end %>
+</body>
+</html>
