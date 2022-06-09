@@ -7,26 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-  <%# <form action="/users" accept-charset="UTF-8" method="post">
-    <input name="authenticity_token" type="hidden" 
-      value="<%= form_authenticity_token %>
-    <%# <label for="username">Username:</label>
-    <input type="text" id="username" name="user[username]"><br><br>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="user[email]"><br><br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="user[password]"><br><br>
-    <input type="submit" value="Submit">
-  </form>  %>
   <%= form_with model: @user do |form| %>
-    <%= form.label "Username:" %> <br>
-    <%= form.text_field :username, placeholder: "Your username here, min. 4 char" %> <br><br>
-    <%= form.label "Email:" %> <br>
-    <%= form.email_field :email, placeholder: "email@gmail.com" %> <br><br>
-    <%= form.label "Password:" %> <br>
-    <%= form.password_field :password, placeholder: "Password min. 6 char" %> <br><br>
-    <%= form.submit "Submit" %>
-
     <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this article from being saved:</h2>
@@ -38,6 +19,14 @@
       </ul>
     </div>
     <% end %>
+
+    <%= form.label "Username:" %> <br>
+    <%= form.text_field :username, placeholder: "Your username here, min. 4 char" %> <br><br>
+    <%= form.label "Email:" %> <br>
+    <%= form.email_field :email, placeholder: "email@gmail.com" %> <br><br>
+    <%= form.label "Password:" %> <br>
+    <%= form.password_field :password, placeholder: "Password min. 6 char" %> <br><br>
+    <%= form.submit "Submit" %>
   <% end %>
 </body>
 </html>
